@@ -1,0 +1,12 @@
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+h1 {
+  color: #eb7a34;
+}
+.btn{
+    background-color: cornflowerblue;
+}

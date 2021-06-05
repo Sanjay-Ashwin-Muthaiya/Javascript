@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Calculator</title>
+        <link rel="stylesheet" href="calculator.css">
+        <script src="calculator.js"></script>
+    </head>
+    <body>
+      <h1 id=#headingtheme >Calculate your Ideas Here!</h1>
+        <form>
+        Enter First Number: <input type="text" name="firstNumber" id="firstNumber"><br>
+        Enter Second Number: <input type="text" name="secondNumber" id="secondNumber"><br>
+        Select the Operation: <select name="operation" id="operation">
+            <option value="add" id="add">Add</option>
+            <option value="sub" id="sub">Subract</option>
+            <option value="mul" id="multiply">Multiply</option>
+            <option value="div" id="divide">Divide</option>
+          </select>
+          <input class="btn" type="button" onclick= "operate();"  value="Calculate">     
+        </form>
+        <h3 class="hide" id="textresult">Result</h3>
+        <input class="hide" type="text" id="textInput" value="" >
+    </body>
+</html>
