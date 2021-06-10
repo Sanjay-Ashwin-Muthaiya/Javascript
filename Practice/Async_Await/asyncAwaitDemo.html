@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>Async and Await Demo</title>
+</head>
+
+<body>
+    <h1 id="data"></h1>
+    <script>
+        async function showDisplay() {
+            let myPromise = new Promise(function (myResolve, myReject) {
+                const url = "https://jsonplaceholder.typicode.com/photos";
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", url);
+                xhr.onload = function () {
+                    if (xhr.status == 200) {
+                        var data = JSON.parse(xhr.response)
+                        myResolve(data[1].title);
+                    } else {
+                        myReject("File not Found");
+                    }
+                };
+                xhr.send();
+            });
+            document.getElementById("data").innerHTML = await myPromise;
+        }
+        showDisplay();
+    </script>
+</body>
+
+</html>

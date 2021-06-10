@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>Promises Demo</title>
+</head>
+
+<body>
+    <h1 id="data"></h1>
+    <script>
+        function display(data) {
+            document.getElementById("data").innerHTML = data;
+        }
+        const url = "https://jsonplaceholder.typicode.com/photos";
+        let myPromise = new Promise(function (myResolve, myReject) {
+            let xhr = new XMLHttpRequest;
+            xhr.open("GET", url);
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    myResolve("Success")
+                } else {
+                    myReject(`Invalid URL ${url}`);
+                }
+            }
+            xhr.send();
+        })
+
+        myPromise.then(function (value) {
+            display(value)
+        }, function (error) {
+            display(error)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<html>
+
+<head></head>
+
+<body>
+    <h1 id="demo"></h1>
+    <script>
+        const url = "https://jsonplaceholder.typicode.com/photos";
+        var xhr = new XMLHttpRequest();
+        function myDisplay(data) {
+            document.getElementById("demo").innerHTML = data;
+        }
+        function doCheck(callBack) {
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 3) {
+                    if (xhr.status == 200) {
+                        var photoArr = xhr.responseText;
+                        var data = JSON.parse(photoArr);
+                        console.log(data[1]);
+
+                        callBack(`ID : ${data[1].id} Title : ${data[1].title}`);
+                    } else {
+                        callBack(`Error ${xhr.status} Please wait page is loading`);
+                    }
+                } else {
+                    callBack(`Please wait page is loading`);
+                }
+            }
+        }
+
+        doCheck(myDisplay);
+
+        xhr.open('GET', url)
+        xhr.send();
+    </script>
+</body>
+
+</html>
